@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &337109432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,8 +339,12 @@ MonoBehaviour:
   CurrentLevelText: {fileID: 1224994322}
   Levels:
   - {fileID: 11400000, guid: 14b79e1189b42a84fad1d8008899d49f, type: 2}
+  - {fileID: 11400000, guid: 144a48fa7a7be5c44a5ffeb4cd56b070, type: 2}
   CurrentLevel: -1
-  ExpectedPatternTile: {fileID: 0}
+  LevelObjects: []
+  ExpectedPatternTile: {fileID: 3293639047778250254, guid: 56d08e4353a6ae641afd539e7369a141, type: 3}
+  DefaultTile: {fileID: 5249427434433050055, guid: ba7567c97948af54f9eb8b17aebaeb90, type: 3}
+  Canon: {fileID: 3446703746303974799, guid: ea015f0cd174fd949a9d00d68da74b52, type: 3}
 --- !u!4 &369823083
 Transform:
   m_ObjectHideFlags: 0
@@ -349,7 +353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369823081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.6043415, y: 3.2154408, z: 3.9913235}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -738,7 +742,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 825334747}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 369823082}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OpenSelectLevelScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &825334747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,6 +802,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 858280749}
+  - component: {fileID: 858280751}
+  - component: {fileID: 858280750}
   m_Layer: 5
   m_Name: ExpectedPattern
   m_TagString: Untagged
@@ -812,6 +830,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 460}
   m_SizeDelta: {x: 720, y: 640}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &858280750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858280748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29411766}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &858280751
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858280748}
+  m_CullTransparentMesh: 1
 --- !u!1 &897638345
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &906808951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1315,13 +1368,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.5537003, y: -0.002989417, z: 0.001987915, w: 0.8327083}
-  m_LocalPosition: {x: 0, y: 8, z: -5}
+  m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
+  m_LocalPosition: {x: 0, y: 8, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
 --- !u!1 &1042156865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,7 +1758,7 @@ Transform:
   m_GameObject: {fileID: 1305171290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 4, y: 1, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5

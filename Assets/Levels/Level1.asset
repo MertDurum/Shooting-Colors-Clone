@@ -30,7 +30,7 @@ MonoBehaviour:
   - Line:
     - Item: {fileID: 0}
       yRotation: 0
-    - Item: {fileID: 0}
-      yRotation: 0
     - Item: {fileID: 11400000, guid: d713fe485a20d4b4dae04f532dce62ef, type: 2}
+      yRotation: 0
+    - Item: {fileID: 0}
       yRotation: 0
