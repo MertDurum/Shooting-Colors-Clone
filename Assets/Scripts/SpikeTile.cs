@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpikeTile : DefaultTile
 {
+    public ParticleSystem ExplosionEffect;
+
     protected override void OnTriggerEnter(Collider col)
     {
         Color newColor = col.gameObject.GetComponent<Projectile>().ProjectileColor;
@@ -11,7 +13,9 @@ public class SpikeTile : DefaultTile
         if (newColor != null)
         {
             SetColor(newColor);
-            // add particle effect
+            ParticleSystem.MainModule main = ExplosionEffect.main;
+            main.startColor = newColor;
+            ExplosionEffect.Play();
             Destroy(col.gameObject);
         }
     }

@@ -8,10 +8,15 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public Transform ExpectedPatternTransform;
     public GameObject LevelSelectionPanel;
+    public GameObject LevelCompletePanel;
     public Text CurrentLevelText;
 
     public LevelInfo[] Levels;
     public int CurrentLevel;
+
+    public bool Paused;
+
+    public GameObject MainCamera;
 
     public List<GameObject> LevelObjects;
 
@@ -42,6 +47,13 @@ public class GameManager : MonoBehaviour
         }
         LevelObjects.Clear();
 
+        // Clear previous level projectiles
+        foreach (Projectile projectile in GameObject.FindObjectsOfType<Projectile>())
+        {
+            Debug.Log("A");
+            Destroy(projectile.gameObject);
+        }
+
         CurrentLevel = _level;
 
         int rowCount = Levels[CurrentLevel - 1].LevelLayout.Length;
@@ -50,6 +62,7 @@ public class GameManager : MonoBehaviour
         float rowCenter = (rowCount - 1) / 2f;
         float columnCenter = (columnCount - 1) / 2f;
 
+        // Generate level objects
         for (int row = 0; row < rowCount; row++)
         {
             for (int column = 0; column < columnCount; column++)
@@ -87,12 +100,60 @@ public class GameManager : MonoBehaviour
                 {
                     GameObject canon = Instantiate(Canon, new Vector3(column - columnCenter, 0, rowCenter - row), DefaultTile.transform.rotation * Quaternion.Euler(new Vector3(0, Levels[CurrentLevel - 1].LevelLayout[row].Line[column].yRotation, 0))); // change rotation due to the layout[row].line[column].yRotation
                     canon.GetComponent<Canon>().ProjectileColor = item.ItemColor;
+                    canon.GetComponent<Canon>().GM = this;
                     LevelObjects.Add(canon);
                 }
             }
         }
 
+        // Set camera position
+        int longerAxis = (rowCount > columnCount) ? rowCount : columnCount;
+
+        Vector3 cameraPos = new Vector3();
+        cameraPos.x = 0;
+        cameraPos.y = (longerAxis + 1) * 2;
+        cameraPos.z = cameraPos.y / -2f;
+
+        MainCamera.transform.position = cameraPos;
+        
+        // Update UI
         CurrentLevelText.text = "LEVEL " + _level;
         LevelSelectionPanel.SetActive(false);
+        LevelCompletePanel.SetActive(false);
+
+        Paused = false;
+    }
+
+    public void NextLevel()
+    {
+        if (CurrentLevel + 1 <= Levels.Length)
+            LoadLevel(CurrentLevel + 1);
+        else
+        {
+            LevelSelectionPanel.SetActive(true);
+            LevelCompletePanel.SetActive(false);
+        }
+    }
+
+    public void CheckWinConditions()
+    {
+        bool win = true;
+        foreach (GameObject item in LevelObjects)
+        {
+            if (item.TryGetComponent(out DefaultTile tile))
+            {
+                if (!tile.isCorrect())
+                {
+                    win = false;
+                    break;
+                }
+            }
+        }
+
+        if (win)
+        {
+            LevelCompletePanel.SetActive(true);
+            Paused = true;
+        }
     }
 }

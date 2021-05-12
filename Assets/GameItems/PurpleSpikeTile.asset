@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e25a299abe320194eb5009c090e57ad2, type: 3}
-  m_Name: GreenCanon
+  m_Name: PurpleSpikeTile
   m_EditorClassIdentifier: 
-  ItemType: 0
-  ItemColor: {r: 0.1764706, g: 0.5882353, b: 0, a: 1}
+  ItemType: 2
+  ItemColor: {r: 0.39215687, g: 0, b: 1, a: 1}

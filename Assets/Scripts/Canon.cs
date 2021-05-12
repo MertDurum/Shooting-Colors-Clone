@@ -9,6 +9,7 @@ public class Canon : MonoBehaviour
     public Transform FiringTransform;
 
     public MeshRenderer MR;
+    public GameManager GM;
 
     void Start()
     {
@@ -17,7 +18,10 @@ public class Canon : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GameObject projectile = Instantiate(ProjectilePrefab, FiringTransform.position, FiringTransform.rotation);
-        projectile.GetComponent<Projectile>().SetColor(ProjectileColor);
+        if (!GM.Paused)
+        {
+            GameObject projectile = Instantiate(ProjectilePrefab, FiringTransform.position, FiringTransform.rotation);
+            projectile.GetComponent<Projectile>().SetColor(ProjectileColor);
+        }
     }
 }
