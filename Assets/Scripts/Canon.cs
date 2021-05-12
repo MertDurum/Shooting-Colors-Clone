@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Canon : MonoBehaviour
 {
+    public GameObject ProjectilePrefab;
     public Color ProjectileColor;
+    public Transform FiringTransform;
 
     public MeshRenderer MR;
 
@@ -12,5 +14,11 @@ public class Canon : MonoBehaviour
     {
         MR = gameObject.GetComponentInChildren<MeshRenderer>();
         MR.material.color = ProjectileColor;
+    }
+
+    private void OnMouseDown()
+    {
+        GameObject projectile = Instantiate(ProjectilePrefab, FiringTransform.position, FiringTransform.rotation);
+        projectile.GetComponent<Projectile>().SetColor(ProjectileColor);
     }
 }
