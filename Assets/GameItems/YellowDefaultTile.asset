@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e25a299abe320194eb5009c090e57ad2, type: 3}
-  m_Name: PurpleDefaultTile
+  m_Name: YellowDefaultTile
   m_EditorClassIdentifier: 
   ItemType: 1
-  ItemColor: {r: 0.39215687, g: 0, b: 1, a: 1}
+  ItemColor: {r: 1, g: 0.6862745, b: 0, a: 1}

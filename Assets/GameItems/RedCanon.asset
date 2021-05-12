@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25a299abe320194eb5009c090e57ad2, type: 3}
   m_Name: RedCanon
   m_EditorClassIdentifier: 
-  ItemType: 1
+  ItemType: 0
   ItemColor: {r: 1, g: 0, b: 0, a: 1}
