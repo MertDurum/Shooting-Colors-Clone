@@ -79,7 +79,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 5940179904415215761, guid: f2f5985a929c6614b909b1f42b6336e4, type: 3}
   ProjectileColor: {r: 0, g: 0, b: 0, a: 0}
   FiringTransform: {fileID: 4555914077464242939}
-  MR: {fileID: 0}
+  MR: {fileID: 4357534454890320331}
 --- !u!65 &4352770388372692105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -169,5 +169,10 @@ PrefabInstance:
 --- !u!4 &7809003769389224794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5cf867634ac41bd41b86e7f56250bff8, type: 3}
+  m_PrefabInstance: {fileID: 7770291488186758321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4357534454890320331 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6317578925029434746, guid: 5cf867634ac41bd41b86e7f56250bff8, type: 3}
   m_PrefabInstance: {fileID: 7770291488186758321}
   m_PrefabAsset: {fileID: 0}

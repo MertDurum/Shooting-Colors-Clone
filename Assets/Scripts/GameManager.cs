@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [Header("Prefabs")]
     public GameObject ExpectedPatternTile;
     public GameObject DefaultTile;
+    public GameObject SpikeTile;
+    public GameObject CornerTile;
     public GameObject Canon;
 
     void Start()
@@ -42,7 +44,6 @@ public class GameManager : MonoBehaviour
 
         CurrentLevel = _level;
 
-        // @TODO: Center the expected pattern while creating it
         int rowCount = Levels[CurrentLevel - 1].LevelLayout.Length;
         int columnCount = Levels[CurrentLevel - 1].LevelLayout[0].Line.Length;
 
@@ -57,15 +58,30 @@ public class GameManager : MonoBehaviour
                     continue;
 
                 GameItems item = Levels[CurrentLevel - 1].LevelLayout[row].Line[column].Item;
-                if (item.ItemType == ObjectTypes.DefaultTile)
+                if (item.ItemType == ObjectTypes.DefaultTile || item.ItemType == ObjectTypes.SpikeTile || item.ItemType == ObjectTypes.CornerTile)
                 {
                     RawImage image = Instantiate(ExpectedPatternTile, ExpectedPatternTransform).GetComponent<RawImage>();
-                    image.rectTransform.anchoredPosition = new Vector2(column * 100, -row * 100);
+                    image.rectTransform.anchoredPosition = new Vector2((column - columnCenter) * 100, (rowCenter - row) * 100);
                     image.color = item.ItemColor;
 
-                    GameObject tile = Instantiate(DefaultTile, new Vector3(column - columnCenter, 0, rowCenter - row), DefaultTile.transform.rotation);
-                    tile.GetComponent<DefaultTile>().ExpectedColor = item.ItemColor;
-                    LevelObjects.Add(tile);
+                    if (item.ItemType == ObjectTypes.DefaultTile)
+                    {
+                        GameObject tile = Instantiate(DefaultTile, new Vector3(column - columnCenter, 0, rowCenter - row), DefaultTile.transform.rotation);
+                        tile.GetComponent<DefaultTile>().ExpectedColor = item.ItemColor;
+                        LevelObjects.Add(tile);
+                    }
+                    else if (item.ItemType == ObjectTypes.SpikeTile)
+                    {
+                        GameObject tile = Instantiate(SpikeTile, new Vector3(column - columnCenter, 0, rowCenter - row), SpikeTile.transform.rotation);
+                        tile.GetComponent<SpikeTile>().ExpectedColor = item.ItemColor;
+                        LevelObjects.Add(tile);
+                    }
+                    else if (item.ItemType == ObjectTypes.CornerTile)
+                    {
+                        GameObject tile = Instantiate(CornerTile, new Vector3(column - columnCenter, 0, rowCenter - row), CornerTile.transform.rotation * Quaternion.Euler(new Vector3(0, Levels[CurrentLevel - 1].LevelLayout[row].Line[column].yRotation, 0)));
+                        tile.GetComponent<CornerTile>().ExpectedColor = item.ItemColor;
+                        LevelObjects.Add(tile);
+                    }
                 }
                 else if (item.ItemType == ObjectTypes.Canon)
                 {
@@ -78,10 +94,5 @@ public class GameManager : MonoBehaviour
 
         CurrentLevelText.text = "LEVEL " + _level;
         LevelSelectionPanel.SetActive(false);
-    }
-    
-    public void OpenSelectLevelScreen()
-    {
-        LevelSelectionPanel.SetActive(true);
     }
 }

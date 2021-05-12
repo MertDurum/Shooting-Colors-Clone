@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &337109432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -339,11 +339,17 @@ MonoBehaviour:
   CurrentLevelText: {fileID: 1224994322}
   Levels:
   - {fileID: 11400000, guid: 14b79e1189b42a84fad1d8008899d49f, type: 2}
+  - {fileID: 11400000, guid: 77081db9fe195a946ba8bd4b2f2f2518, type: 2}
   - {fileID: 11400000, guid: 144a48fa7a7be5c44a5ffeb4cd56b070, type: 2}
+  - {fileID: 11400000, guid: a165dd9d46e543644b044e20d9f5648b, type: 2}
+  - {fileID: 11400000, guid: 944ea3f2f7161c644922996f500e0e2d, type: 2}
+  - {fileID: 11400000, guid: 8d4474c543cc1944ab0e80db3e2b7686, type: 2}
   CurrentLevel: -1
   LevelObjects: []
   ExpectedPatternTile: {fileID: 3293639047778250254, guid: 56d08e4353a6ae641afd539e7369a141, type: 3}
   DefaultTile: {fileID: 5249427434433050055, guid: ba7567c97948af54f9eb8b17aebaeb90, type: 3}
+  SpikeTile: {fileID: 6951701129073219452, guid: 54a58ddaf7895a64e9f6fbaba65e7d50, type: 3}
+  CornerTile: {fileID: 3825577590649453448, guid: bf84966427abe0f4c9dc1badd621fb86, type: 3}
   Canon: {fileID: 3446703746303974799, guid: ea015f0cd174fd949a9d00d68da74b52, type: 3}
 --- !u!4 &369823083
 Transform:
@@ -595,14 +601,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -743,17 +749,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 369823082}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OpenSelectLevelScreen
-        m_Mode: 1
+      - m_Target: {fileID: 906808950}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &825334747
 MonoBehaviour:

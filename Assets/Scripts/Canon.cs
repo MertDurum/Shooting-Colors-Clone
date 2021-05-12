@@ -12,7 +12,6 @@ public class Canon : MonoBehaviour
 
     void Start()
     {
-        MR = gameObject.GetComponentInChildren<MeshRenderer>();
         MR.material.color = ProjectileColor;
     }
 

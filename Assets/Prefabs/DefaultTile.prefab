@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExpectedColor: {r: 0, g: 0, b: 0, a: 0}
   CurrentColor: {r: 0, g: 0, b: 0, a: 0}
+  MR: {fileID: 1406986002387715619}
 --- !u!65 &3601876657643327536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -132,5 +133,10 @@ PrefabInstance:
 --- !u!4 &274071467247517004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8053fd1eccedee74b868dcf5fe0e29cc, type: 3}
+  m_PrefabInstance: {fileID: 308228230805379751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1406986002387715619 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8053fd1eccedee74b868dcf5fe0e29cc, type: 3}
   m_PrefabInstance: {fileID: 308228230805379751}
   m_PrefabAsset: {fileID: 0}

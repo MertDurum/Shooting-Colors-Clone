@@ -131,7 +131,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &-1446134566398744194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectileColor: {r: 0, g: 0, b: 0, a: 0}
   Speed: 5
-  LifeTime: 1
-  MR: {fileID: 0}
+  LifeTime: 2.5
+  MR: {fileID: 1053536192249791194}
 --- !u!135 &5761271926443435057
 SphereCollider:
   m_ObjectHideFlags: 0

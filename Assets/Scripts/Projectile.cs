@@ -18,8 +18,6 @@ public class Projectile : MonoBehaviour
     public void SetColor(Color _color)
     {
         ProjectileColor = _color;
-        if (MR == null)
-            MR = gameObject.GetComponentInChildren<MeshRenderer>();
         MR.material.color = ProjectileColor;
     }
 

@@ -7,10 +7,12 @@ public class DefaultTile : MonoBehaviour
     public Color ExpectedColor;
     public Color CurrentColor;
 
+    public MeshRenderer MR;
+
     public void SetColor(Color _color)
     {
         CurrentColor = _color;
-        gameObject.GetComponentInChildren<MeshRenderer>().material.color = CurrentColor;
+        MR.material.color = CurrentColor;
         // Call Game-Manager to check each tile to decide if the win conditions are set
     }
 
@@ -21,10 +23,9 @@ public class DefaultTile : MonoBehaviour
         return false;
     }
 
-    private void OnTriggerEnter(Collider col)
+    protected virtual void OnTriggerEnter(Collider col)
     {
-        Debug.Log("TEST#1");
-        Color newColor = col.GetComponent<Projectile>().ProjectileColor;
+        Color newColor = col.gameObject.GetComponent<Projectile>().ProjectileColor;
 
         if (newColor != null)
             SetColor(newColor);

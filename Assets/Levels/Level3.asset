@@ -10,14 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d91697e0d0cdc904288753c84da7592c, type: 3}
-  m_Name: Level2
+  m_Name: Level3
   m_EditorClassIdentifier: 
   LevelLayout:
   - Line:
-    - Item: {fileID: 11400000, guid: d713fe485a20d4b4dae04f532dce62ef, type: 2}
-      yRotation: 90
     - Item: {fileID: 0}
       yRotation: 0
+    - Item: {fileID: 11400000, guid: c1432146341a63542b2984ab5a79f464, type: 2}
+      yRotation: 0
+    - Item: {fileID: 0}
+      yRotation: 0
+    - Item: {fileID: 11400000, guid: b10447e9533fad442828c3391f08fea9, type: 2}
+      yRotation: -90
+  - Line:
+    - Item: {fileID: 11400000, guid: d713fe485a20d4b4dae04f532dce62ef, type: 2}
+      yRotation: 90
     - Item: {fileID: 11400000, guid: 9e1e744af179e2246b1020b0fa6ebd6a, type: 2}
       yRotation: 0
     - Item: {fileID: 11400000, guid: 9e1e744af179e2246b1020b0fa6ebd6a, type: 2}
@@ -26,8 +33,6 @@ MonoBehaviour:
       yRotation: 0
   - Line:
     - Item: {fileID: 0}
-      yRotation: 0
-    - Item: {fileID: 11400000, guid: 0037273a8db1cd149b296975a9696a36, type: 2}
       yRotation: 0
     - Item: {fileID: 11400000, guid: 0037273a8db1cd149b296975a9696a36, type: 2}
       yRotation: 0

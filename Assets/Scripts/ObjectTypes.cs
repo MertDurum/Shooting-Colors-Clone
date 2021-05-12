@@ -1,5 +1,7 @@
 public enum ObjectTypes
 {
     Canon,
-    DefaultTile
+    DefaultTile,
+    SpikeTile,
+    CornerTile
 }
