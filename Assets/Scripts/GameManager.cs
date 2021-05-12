@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
         CurrentLevel = _level;
 
-        // @TODO: Center the pattern visualizer upon creating it
+        // @TODO: Center the expected pattern while creating it
         int rowCount = Levels[CurrentLevel - 1].LevelLayout.Length;
         int columnCount = Levels[CurrentLevel - 1].LevelLayout[0].Line.Length;
 
