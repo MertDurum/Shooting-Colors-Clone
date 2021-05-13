@@ -12,6 +12,7 @@ public class DefaultTile : MonoBehaviour
     {
         CurrentColor = _color;
         MR.material.color = CurrentColor;
+
         // Call Game-Manager to check if the win conditions are set
         AudioSource AS = gameObject.GetComponent<AudioSource>();
         AS.PlayOneShot(AS.clip);

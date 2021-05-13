@@ -12,6 +12,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void ProceduralLevelGeneration()
     {
-
+        SceneManager.LoadScene("ProceduralGeneration");
     }
 }

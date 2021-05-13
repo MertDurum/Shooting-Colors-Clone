@@ -23,7 +23,6 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        // not sure if this is the best way to do this.
         gameObject.transform.Translate(Vector3.forward * Speed * Time.deltaTime, Space.Self);
     }
 }

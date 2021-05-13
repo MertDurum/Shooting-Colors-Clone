@@ -5,20 +5,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("UI")]
-    public Transform ExpectedPatternTransform;
-    public GameObject LevelSelectionPanel;
-    public GameObject LevelCompletePanel;
-    public Text CurrentLevelText;
 
     public LevelInfo[] Levels;
-    public int CurrentLevel;
-
+    private int CurrentLevel = -1;
     public bool Paused;
-
     public GameObject MainCamera;
-
-    public List<GameObject> LevelObjects;
+    private List<GameObject> LevelObjects;
 
     [Header("Prefabs")]
     public GameObject ExpectedPatternTile;
@@ -26,6 +18,12 @@ public class GameManager : MonoBehaviour
     public GameObject SpikeTile;
     public GameObject CornerTile;
     public GameObject Canon;
+
+    [Header("UI")]
+    public Transform ExpectedPatternTransform;
+    public GameObject LevelSelectionPanel;
+    public GameObject LevelCompletePanel;
+    public Text CurrentLevelText;
 
     void Start()
     {
@@ -46,13 +44,6 @@ public class GameManager : MonoBehaviour
             Destroy(item);
         }
         LevelObjects.Clear();
-
-        // Clear previous level projectiles
-        foreach (Projectile projectile in GameObject.FindObjectsOfType<Projectile>())
-        {
-            Debug.Log("A");
-            Destroy(projectile.gameObject);
-        }
 
         CurrentLevel = _level;
 
@@ -154,6 +145,12 @@ public class GameManager : MonoBehaviour
         {
             LevelCompletePanel.SetActive(true);
             Paused = true;
+
+            // Clear previous level projectiles
+            foreach (Projectile projectile in GameObject.FindObjectsOfType<Projectile>())
+            {
+                Destroy(projectile.gameObject);
+            }
         }
     }
 }
