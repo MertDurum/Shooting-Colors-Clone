@@ -16,7 +16,7 @@ public class DefaultTile : MonoBehaviour
         // Call Game-Manager to check if the win conditions are set
         AudioSource AS = gameObject.GetComponent<AudioSource>();
         AS.PlayOneShot(AS.clip);
-        GameObject.FindObjectOfType<GameManager>().CheckWinConditions();
+        StartCoroutine(GameObject.FindObjectOfType<GameManager>().CheckWinConditions());
     }
 
     public bool isCorrect()

@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CheckWinConditions()
+    public IEnumerator CheckWinConditions()
     {
         bool win = true;
         foreach (GameObject item in LevelObjects)
@@ -143,13 +143,32 @@ public class GameManager : MonoBehaviour
 
         if (win)
         {
-            LevelCompletePanel.SetActive(true);
-            Paused = true;
+            yield return new WaitForSecondsRealtime(0.1f);
 
-            // Clear previous level projectiles
-            foreach (Projectile projectile in GameObject.FindObjectsOfType<Projectile>())
+            bool winDoubleCheck = true;
+
+            foreach (GameObject item in LevelObjects)
             {
-                Destroy(projectile.gameObject);
+                if (item.TryGetComponent(out DefaultTile tile))
+                {
+                    if (!tile.isCorrect())
+                    {
+                        winDoubleCheck = false;
+                        break;
+                    }
+                }
+            }
+
+            if (winDoubleCheck)
+            {
+                LevelCompletePanel.SetActive(true);
+                Paused = true;
+
+                // Clear previous level projectiles
+                foreach (Projectile projectile in GameObject.FindObjectsOfType<Projectile>())
+                {
+                    Destroy(projectile.gameObject);
+                }
             }
         }
     }
