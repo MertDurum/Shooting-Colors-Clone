@@ -1,5 +1,5 @@
 # Shooting-Colors-Clone
-A clone of the game named Shooting Colors.
+A clone of the game named Shooting Colors. All assets used in the game were made by me during the development process.
 
 ## Screenshots
 ![Screenshot](https://user-images.githubusercontent.com/48692367/118067721-cae85200-b3a9-11eb-8338-fddfe50f568d.png)
