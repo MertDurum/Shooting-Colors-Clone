@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private int CurrentLevel = -1;
     public bool Paused;
     public GameObject MainCamera;
+    public GameObject[] LevelButtons;
     private List<GameObject> LevelObjects;
 
     [Header("Prefabs")]
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         LevelObjects = new List<GameObject>();
+        UpdateLevelButtons();
     }
 
     public void LoadLevel(int _level)
@@ -118,7 +120,9 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         if (CurrentLevel + 1 <= Levels.Length)
+        {
             LoadLevel(CurrentLevel + 1);
+        }
         else
         {
             LevelSelectionPanel.SetActive(true);
@@ -161,6 +165,10 @@ public class GameManager : MonoBehaviour
 
             if (winDoubleCheck)
             {
+                if (PlayerPrefs.GetInt("LevelProgress") < CurrentLevel + 1)
+                {
+                    PlayerPrefs.SetInt("LevelProgress", CurrentLevel + 1);
+                }
                 LevelCompletePanel.SetActive(true);
                 Paused = true;
 
@@ -171,5 +179,37 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ShowLevelScreen()
+    {
+        UpdateLevelButtons();
+        LevelSelectionPanel.SetActive(true);
+    }
+
+    private void UpdateLevelButtons()
+    {
+        int levelProgress = PlayerPrefs.GetInt("LevelProgress", -1);
+
+        if (levelProgress == -1)
+        {
+            PlayerPrefs.SetInt("LevelProgress", 1);
+            levelProgress = 1;
+        }
+
+        for (int i = 0; i < LevelButtons.Length; i++)
+        {
+            Button B = LevelButtons[i].GetComponent<Button>();
+            if (i < levelProgress)
+                B.interactable = true;
+            else
+                B.interactable = false;
+        }
+    }
+
+    public void DeleteProgress()
+    {
+        PlayerPrefs.DeleteKey("LevelProgress");
+        UpdateLevelButtons();
     }
 }
